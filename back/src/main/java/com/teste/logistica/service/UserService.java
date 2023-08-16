@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.teste.logistica.dto.UserDto;
@@ -21,8 +20,7 @@ public class UserService {
      private UserRepository userRepository;
          @Autowired
     private RoleRepository roleRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+
 
   
 
@@ -31,7 +29,7 @@ public class UserService {
         user.setUsername(userDto.getUsername());
         user.setEmail(userDto.getEmail());
         // encrypt the password using spring security
-        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setPassword(userDto.getPassword());
         Role role = roleRepository.findByName(EnumRole.ROLE_ADMIN).orElse(null);
         if(role == null){
             role = checkRoleExist();
