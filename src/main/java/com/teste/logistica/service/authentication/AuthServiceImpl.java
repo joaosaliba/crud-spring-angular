@@ -1,4 +1,4 @@
-package com.teste.logistica.service;
+package com.teste.logistica.service.authentication;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

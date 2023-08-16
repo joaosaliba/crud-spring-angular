@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.teste.logistica.dto.LoginDto;
 import com.teste.logistica.model.JWTAuthResponse;
-import com.teste.logistica.service.AuthService;
+import com.teste.logistica.service.authentication.AuthService;
 
 import lombok.AllArgsConstructor;
 
@@ -15,7 +15,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-     private AuthService authService;
+     private AuthService authService;  
 
     @PostMapping("/login")
     public ResponseEntity<JWTAuthResponse> authenticate(@RequestBody LoginDto loginDto){

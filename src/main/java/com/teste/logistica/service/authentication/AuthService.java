@@ -1,4 +1,4 @@
-package com.teste.logistica.service;
+package com.teste.logistica.service.authentication;
 
 import com.teste.logistica.dto.LoginDto;
 
