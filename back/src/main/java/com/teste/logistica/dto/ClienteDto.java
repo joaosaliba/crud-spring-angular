@@ -1,5 +1,6 @@
 package com.teste.logistica.dto;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.springframework.lang.Nullable;
@@ -17,9 +18,11 @@ public class ClienteDto {
     private Long id;
 
     @Size(max = 200)
+        @NotBlank(message = "nome inválido")
     private String nome;
 
     @Size(max = 14)
+    @NotBlank(message = "CNPJ inválido")
     private String cnpj;
 
     private EnderecoDto endereco;

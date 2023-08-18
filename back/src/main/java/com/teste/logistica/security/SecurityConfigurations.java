@@ -2,17 +2,18 @@ package com.teste.logistica.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfigurations {
+public class SecurityConfigurations extends WebSecurityConfigurerAdapter  {
     @Bean
     public static PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -28,22 +29,27 @@ public class SecurityConfigurations {
                                     "/webjars/**"
  };
  
-   @Bean
-   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-       http.authorizeRequests(requests -> requests
-               .antMatchers(AUTH_WHITE_LIST).permitAll()
+ @Override
+ protected void configure(HttpSecurity http) throws Exception {
+     http.cors().and().authorizeRequests()
+       .antMatchers(AUTH_WHITE_LIST).permitAll()
                .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/**").permitAll()
                .antMatchers(HttpMethod.POST, "/api/user/register").permitAll()
-               .anyRequest().authenticated()).csrf(csrf -> csrf.disable());
+         .anyRequest().authenticated()
+         .and()
+         .httpBasic().and().csrf().disable();
+ }
+
  
-     return http.build();
-   }
- 
-     @Bean
-     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
-         return configuration.getAuthenticationManager();
-     }
+ @Bean
+ public CorsFilter corsFilter() {
+     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+     CorsConfiguration config = new CorsConfiguration();
+     config.applyPermitDefaultValues();
+     source.registerCorsConfiguration("/**", config);
+     return new CorsFilter(source);
+ }
      
     
 }
