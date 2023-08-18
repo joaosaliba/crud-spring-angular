@@ -13,15 +13,15 @@
     mvn spring-boot:run
     ```
     - volte uma pasta e acesse o front
-      ````npm install``
+      ```npm install```
       - depois 
       ``` ng server```
 ## Ferramentas e Tecnologias
   - Backend: Java 11+ com Spring Boot 2+
-  - Frontend: Angular 8+
+  - Frontend: Angular 16+
   - Banco de Dados: PostgreSQL.
   - Docker para configuração do ambiente de projeto.
-  - Ferramentas de interação com mapas:  Google Maps API
+  - Ferramentas de interação com mapas:  TOM TOM SDK
   - Documentar a API : Swagger.
       - <http://localhost:8080/swagger-ui.html#>
 
@@ -97,6 +97,6 @@
   - ID
   - Nome
   - CNPJ
-  - Endereço (Rua, Número, Cidade, Estado, CEP, Latitude, Longitude)
+  - Endereço (ID ,Latitude, Longitude)
 
 
