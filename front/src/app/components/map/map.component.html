@@ -1,0 +1,20 @@
+<div class="center-card">
+    <mat-card class="card">
+        
+        <mat-card-content>
+
+<mat-form-field appearance="fill" class="width-full col-12">
+    <input type="text" matInput [formControl]="searchControl" placeholder="Procure Endereço"
+    [matAutocomplete]="auto"
+    (input)="getSearchResults(searchControl.value)">
+    <mat-autocomplete #auto="matAutocomplete"  [displayWith]="displayFn">
+      <mat-option *ngFor="let result of searchResults | async" [value]="result" (click)="onResultSelected(result)">
+        {{ result.address.freeformAddress }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+<div class="map-container" id="map" #mapContainer></div>
+
+
+</mat-card-content>
+</mat-card>

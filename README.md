@@ -1,3 +1,30 @@
+## Intruções de uso
+   - Na raiz do projeto iniciando um docker com postgres
+   ```
+   dokcer-compose up -d 
+   ```
+   - Acesse pasta back e rode
+    ```
+    mvn clean package 
+    ```
+
+    - em seguida 
+    ```
+    mvn spring-boot:run
+    ```
+    - volte uma pasta e acesse o front
+      ````npm install``
+      - depois 
+      ``` ng server```
+## Ferramentas e Tecnologias
+  - Backend: Java 11+ com Spring Boot 2+
+  - Frontend: Angular 8+
+  - Banco de Dados: PostgreSQL.
+  - Docker para configuração do ambiente de projeto.
+  - Ferramentas de interação com mapas:  Google Maps API
+  - Documentar a API : Swagger.
+      - <http://localhost:8080/swagger-ui.html#>
+
 ## Requisitos Funcionais:
 
 1. **Cadastro de Clientes:**
@@ -30,7 +57,7 @@
   
 3. **Confiabilidade:**
 
-O sistema deve ser confiável e minimizar o risco de perda de dados.
+   - O sistema deve ser confiável e minimizar o risco de perda de dados.
 
 
 
@@ -72,10 +99,4 @@ O sistema deve ser confiável e minimizar o risco de perda de dados.
   - CNPJ
   - Endereço (Rua, Número, Cidade, Estado, CEP, Latitude, Longitude)
 
-## Ferramentas e Tecnologias
-  - Backend: Java 11+ com Spring Boot 2+
-  - Frontend: Angular 8+
-  - Banco de Dados: PostgreSQL.
-  - Docker para configuração do ambiente de projeto.
-  - Ferramentas de interação com mapas:  Google Maps API
-  - Documentar a API : Swagger.
+

@@ -1,0 +1,22 @@
+<div class="drawer">
+    <mat-toolbar>
+      <a [routerLink]="['/cadastro']" class="navbar-brand ml-lg-5 ">
+        Cadastro
+      </a>
+      <span class="example-spacer"></span>
+    </mat-toolbar>
+    <div class="center-card">
+        <mat-card class="card">
+            
+            <mat-card-content>
+    
+    <mat-sidenav-container>
+
+      <mat-sidenav-content class="drawer-content">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+</mat-card-content>
+</mat-card>
+  </div>
+  

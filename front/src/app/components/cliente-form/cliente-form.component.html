@@ -1,0 +1,20 @@
+
+      
+   
+<form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="col-12">
+      <input matInput placeholder="Nome" formControlName="nome" required>
+      <mat-error *ngIf="clientForm.controls['nome'].hasError('maxlength')">Nome deve ter no máximo 200 caracteres</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="col-12">
+      <input matInput placeholder="CNPJ" formControlName="cnpj" required>
+      <mat-error *ngIf="clientForm.controls['cnpj'].hasError('maxlength')">CNPJ deve ter no máximo 14 caracteres</mat-error>
+    </mat-form-field>
+  
+
+  <app-map [formGroup]="endereco"></app-map>
+    <button mat-raised-button color="primary" type="submit" class="col-12">Registrar</button>
+  </form>
+
+  
