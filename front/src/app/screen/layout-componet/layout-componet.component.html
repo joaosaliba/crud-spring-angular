@@ -1,22 +1,28 @@
-<div class="drawer">
-    <mat-toolbar>
-      <a [routerLink]="['/cadastro']" class="navbar-brand ml-lg-5 ">
-        Cadastro
-      </a>
-      <span class="example-spacer"></span>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side"  class="example-container">
+    <mat-nav-list>
+      <ng-container *ngFor="let item of menuItems">
+        <mat-list-item [routerLink]="item.route" routerLinkActive="active">
+          <mat-icon mat-list-icon>{{ item.icon }}</mat-icon>
+          <span mat-line>{{ item.label }}</span>
+        </mat-list-item>
+     
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="drawer-content">
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Menu Lateral</span>
     </mat-toolbar>
     <div class="center-card">
-        <mat-card class="card">
-            
-            <mat-card-content>
-    
-    <mat-sidenav-container>
-
-      <mat-sidenav-content class="drawer-content">
-        <router-outlet></router-outlet>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-</mat-card-content>
-</mat-card>
-  </div>
-  
+      <mat-card class="card">
+        <mat-card-content>
+          <router-outlet></router-outlet>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

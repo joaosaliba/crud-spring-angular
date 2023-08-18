@@ -2,13 +2,24 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-layout-componet',
   templateUrl: './layout-componet.component.html',
   styleUrls: ['./layout-componet.component.scss']
 })
 export class LayoutComponetComponent implements OnInit {
-
+  menuItems: any[] = [
+    {
+      label: 'Inicio',
+      route: '/',
+      
+    },
+    { label: 'Cadastro Cliente', route: '/cadastro' },
+    { label: 'Lista Cliente', route: '/list' },
+    
+    
+  ];
 
   public currentUrl: string;
 

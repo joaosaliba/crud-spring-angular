@@ -17,6 +17,7 @@ import { services } from "@tomtom-international/web-sdk-services";
 export class MapComponent  implements AfterViewInit  {
 
   @ViewChild('mapContainer') mapContainer!: ElementRef<HTMLDivElement>;
+  marker: tt.Marker;
   @Input() public formGroup: FormGroup;
 
   public static get formGroup(): FormGroup {
@@ -102,8 +103,11 @@ export class MapComponent  implements AfterViewInit  {
     });
     this.formGroup.get('latitude')?.setValue(coordinates.lng )
     this.formGroup.get('longitude')?.setValue(coordinates.lat )
+    if (this.marker) {
+      this.marker.remove(); // Remove the marker from the map
+    }
     const popup = new tt.Popup().setHTML(result.address.freeformAddress);
-    new tt.Marker()
+  this.marker=  new tt.Marker()
       .setLngLat([coordinates.lng, coordinates.lat])
       .setPopup(popup)
       .addTo(this.map)

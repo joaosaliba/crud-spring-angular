@@ -1,2 +1,19 @@
 .example-spacer{
   flex: 1 1 auto}
+
+  .example-container {
+    width: 25vw;
+    height: 100vh;
+   
+
+  }
+
+  .card {
+    height: 100%;
+    width: 90%;
+  }
+  
+  .center-card {
+    display: flex;
+    justify-content: center;
+  }
