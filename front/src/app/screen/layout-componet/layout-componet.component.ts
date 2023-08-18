@@ -17,6 +17,7 @@ export class LayoutComponetComponent implements OnInit {
     },
     { label: 'Lista Cliente', route: '/list' },
     { label: 'Cadastro Cliente', route: '/cadastro' },
+    { label: 'Mapa Clientes', route: '/mapaClientes' },
     
     
   ];

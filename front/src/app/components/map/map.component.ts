@@ -101,8 +101,8 @@ export class MapComponent  implements AfterViewInit  {
       center: [coordinates.lng, coordinates.lat],
       zoom: 15,
     });
-    this.formGroup.get('latitude')?.setValue(coordinates.lng )
-    this.formGroup.get('longitude')?.setValue(coordinates.lat )
+    this.formGroup.get('latitude')?.setValue(coordinates.lat )
+    this.formGroup.get('longitude')?.setValue(coordinates.lng )
     if (this.marker) {
       this.marker.remove(); // Remove the marker from the map
     }
@@ -113,8 +113,8 @@ export class MapComponent  implements AfterViewInit  {
       .addTo(this.map)
       .on('dragend', (event: any) => {
         const { lng, lat } = event.target.getLngLat();
-    this.formGroup.get('latitude')?.setValue(lng )
-    this.formGroup.get('longitude')?.setValue(lat )
+    this.formGroup.get('latitude')?.setValue(lat )
+    this.formGroup.get('longitude')?.setValue(lng )
         console.log(`Marker dragged to: ${lat}, ${lng}`);
       }).setDraggable(true);
   }

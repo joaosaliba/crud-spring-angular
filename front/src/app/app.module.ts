@@ -12,6 +12,7 @@ import { MaterialModule } from './plugin/material-imports';
 import { LayoutComponetModule } from './screen/layout-componet.module';
 import { LayoutComponetComponent } from './screen/layout-componet/layout-componet.component';
 import { ClienteListComponent } from './components/cliente-list/cliente-list.component';
+import { ClientesOnMapComponent } from './components/clientes-on-map/clientes-on-map.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ClienteListComponent } from './components/cliente-list/cliente-list.com
     ClienteFormComponent,
     LayoutComponetComponent,
     ClienteListComponent,
+    ClientesOnMapComponent,
     
      
   ],
@@ -40,7 +42,8 @@ import { ClienteListComponent } from './components/cliente-list/cliente-list.com
     ClienteFormComponent,
     LayoutComponetComponent,
     LayoutComponetModule,
-    ClienteListComponent
+    ClienteListComponent,
+    ClientesOnMapComponent
 
   ]
 })
