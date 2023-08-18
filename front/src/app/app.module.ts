@@ -11,6 +11,7 @@ import { MapComponent } from './components/map/map.component';
 import { MaterialModule } from './plugin/material-imports';
 import { LayoutComponetModule } from './screen/layout-componet.module';
 import { LayoutComponetComponent } from './screen/layout-componet/layout-componet.component';
+import { ClienteListComponent } from './components/cliente-list/cliente-list.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LayoutComponetComponent } from './screen/layout-componet/layout-compone
     MapComponent,
     ClienteFormComponent,
     LayoutComponetComponent,
+    ClienteListComponent,
     
      
   ],
@@ -37,7 +39,8 @@ import { LayoutComponetComponent } from './screen/layout-componet/layout-compone
     MapComponent,
     ClienteFormComponent,
     LayoutComponetComponent,
-    LayoutComponetModule
+    LayoutComponetModule,
+    ClienteListComponent
 
   ]
 })

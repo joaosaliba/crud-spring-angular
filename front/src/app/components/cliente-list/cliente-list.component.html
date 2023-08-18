@@ -1,0 +1,44 @@
+<div class="table-container">
+  <mat-table [dataSource]="dataSource">
+    <!-- Colunas da tabela -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef>nome</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.nome }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="cnpj">
+      <mat-header-cell *matHeaderCellDef>cnpj</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.cnpj }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="latitude">
+      <mat-header-cell *matHeaderCellDef>latitude</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{
+        element.endereco.latitude
+      }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="longitude">
+      <mat-header-cell *matHeaderCellDef>longitude</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{
+        element.endereco.longitude
+      }}</mat-cell>
+    </ng-container>
+
+    <!-- Células da tabela -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+
+  <mat-paginator
+    [length]="totalItemCount"
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    (page)="handlePageEvent($event)"
+  ></mat-paginator>
+</div>
