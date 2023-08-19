@@ -13,9 +13,15 @@
     mvn spring-boot:run
     ```
     - volte uma pasta e acesse o front
-      ```npm install```
+   
+      ```
+      npm install
+      ```
+
       - depois 
-      ``` ng server```
+      ```
+       ng server
+       ```
 ## Ferramentas e Tecnologias
   - Backend: Java 11+ com Spring Boot 2+
   - Frontend: Angular 16+
@@ -28,36 +34,36 @@
 ## Requisitos Funcionais:
 
 1. **Cadastro de Clientes:**
-   - O sistema deve permitir o cadastro de clientes com as informações obrigatórias: Nome, CNPJ e Endereço..
-     - Campos obrigatórios para cadastro: Nome, CNPJ e Endereço.
-   - O endereço do cliente deve incluir coordenadas geográficas (latitude e longitude).
-   - Um cliente só pode ser cadastrado se todas as informações obrigatórias estiverem preenchidas.
+   - [x]  O sistema deve permitir o cadastro de clientes com as informações obrigatórias: Nome, CNPJ e Endereço..
+     - [x]  Campos obrigatórios para cadastro: Nome, CNPJ e Endereço.
+  - [x]  O endereço do cliente deve incluir coordenadas geográficas (latitude e longitude).
+   - [x]  Um cliente só pode ser cadastrado se todas as informações obrigatórias estiverem preenchidas.
 
 2. **Consulta de Clientes:**
-   - Possibilidade de buscar e exibir a lista de todos os clientes cadastrados.
-   - A consulta pode incluir filtros, como nome do cliente, CNPJ e localização.
+  - [x]  Possibilidade de buscar e exibir a lista de todos os clientes cadastrados.
+   - [ ]  A consulta pode incluir filtros, como nome do cliente, CNPJ e localização.
 
 3. **Edição de Clientes:**
-   - O sistema deve permitir a edição dos dados de clientes existentes.
-   - Dados editáveis: Nome, CNPJ e Endereço.
+   - [ ]  O sistema deve permitir a edição dos dados de clientes existentes.
+   - [ ]  Dados editáveis: Nome, CNPJ e Endereço.
 
 4. **Exclusão de Clientes:**
-   - Opção de exclusão de um cliente da base de dados.
+   - [ ]  Opção de exclusão de um cliente da base de dados.
 
 5. **Exibição de Clientes em Mapa:**
-    - O sistema deve exibir os clientes em um mapa, utilizando suas coordenadas geográficas para plotar a localização no mapa.
+   - [x] O sistema deve exibir os clientes em um mapa, utilizando suas coordenadas geográficas para plotar a localização no mapa.
 
 ## Requisitos Não Funcionais:
 
 1. **Usabilidade:**
-   - Interface intuitiva e de fácil utilização.
+  - [x] Interface intuitiva e de fácil utilização.
 
 2. **Segurança:**
-   - Controle de acesso por autenticação.
+  - [x] Controle de acesso por autenticação.
   
 3. **Confiabilidade:**
 
-   - O sistema deve ser confiável e minimizar o risco de perda de dados.
+   - [x] O sistema deve ser confiável e minimizar o risco de perda de dados.
 
 
 
@@ -97,6 +103,11 @@
   - ID
   - Nome
   - CNPJ
-  - Endereço (ID ,Latitude, Longitude)
+  
+ **Endereço**:
+  - ID 
+  - Latitude
+  - Longitude
+  - FK_cliente
 
 
