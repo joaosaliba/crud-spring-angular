@@ -41,14 +41,14 @@
 
 2. **Consulta de Clientes:**
   - [x]  Possibilidade de buscar e exibir a lista de todos os clientes cadastrados.
-   - [ ]  A consulta pode incluir filtros, como nome do cliente, CNPJ e localização.
+- [x]  A consulta pode incluir filtros, como nome do cliente, CNPJ e localização.
 
 3. **Edição de Clientes:**
    - [ ]  O sistema deve permitir a edição dos dados de clientes existentes.
    - [ ]  Dados editáveis: Nome, CNPJ e Endereço.
 
 4. **Exclusão de Clientes:**
-   - [ ]  Opção de exclusão de um cliente da base de dados.
+   - [x]  Opção de exclusão de um cliente da base de dados.
 
 5. **Exibição de Clientes em Mapa:**
    - [x] O sistema deve exibir os clientes em um mapa, utilizando suas coordenadas geográficas para plotar a localização no mapa.
