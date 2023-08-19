@@ -1,6 +1,9 @@
 .example-spacer{
   flex: 1 1 auto}
 
+        .flex-spacer {
+          flex: 1;
+        }
   .example-container {
     width: 25vw;
     height: 100vh;
@@ -17,3 +20,28 @@
     display: flex;
     justify-content: center;
   }
+.mat-sidenav-container {
+  display: flex;
+  height: 100vh;
+  /* Set the container's height to 100% of viewport height */
+}
+
+.mat-sidenav {
+  flex: 0 0 auto;
+  /* Keep the sidenav at a fixed width */
+  height: 100%;
+  /* Make the sidenav take full available height */
+}
+
+.mat-sidenav-content {
+  flex: 1;
+  /* Let the content area grow and fill the remaining space */
+  display: flex;
+  flex-direction: column;
+  /* Make the content area a column layout */
+}
+
+.drawer-content {
+  flex: 1;
+  /* Allow the drawer content to expand and take full height */
+}
