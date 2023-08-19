@@ -37,13 +37,14 @@ export class ClientesOnMapComponent implements AfterViewInit {
   searchResults: any;
 
   ngAfterViewInit(): void {
-
     this.loadData();
   }
   loadData() {
     this.dataService.getData(0, 100, null, null).subscribe((data) => {
       this.dataSource = data.content;
-
+      if (this.dataSource.length < 1) {
+        return;
+      }
       // Calculate the bounding box of marker coordinates
       const minLatitude = Math.min(
         ...this.dataSource.map((pessoa) => pessoa.endereco.latitude)
@@ -73,32 +74,31 @@ export class ClientesOnMapComponent implements AfterViewInit {
       });
     });
   }
-  
+
   initMap(center: tt.LngLatLike): void {
     this.map = tt.map({
       key: this.apiKey,
       language: 'pt-BR',
       container: this.mapContainer.nativeElement,
       center: center,
-      zoom: 10 // Set a default zoom level
+      zoom: 10, // Set a default zoom level
     });
     this.map.addControl(new tt.FullscreenControl());
     this.map.addControl(new tt.NavigationControl());
-  
+
     // Calculate and set an appropriate zoom level to fit all markers
     this.fitMapToMarkers();
   }
-  
+
   fitMapToMarkers(): void {
     const bounds = new tt.LngLatBounds();
     this.dataSource.forEach((pessoa) => {
       bounds.extend([pessoa.endereco.longitude, pessoa.endereco.latitude]);
     });
-  
+
     this.map.fitBounds(bounds, { padding: 40 }); // Adjust padding as needed
   }
-  
- 
+
   addMarker(result: any): void {
     const coordinates = result.endereco;
     const popup = new tt.Popup().setHTML(result.nome);

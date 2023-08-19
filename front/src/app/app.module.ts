@@ -7,13 +7,10 @@ import localePt from '@angular/common/locales/pt';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClienteFormComponent } from './components/cliente-form/cliente-form.component';
-import { ClienteListComponent } from './components/cliente-list/cliente-list.component';
-import { ClientesOnMapComponent } from './components/clientes-on-map/clientes-on-map.component';
-import { MapComponent } from './components/map/map.component';
+
+import { ClienteModule } from './cliente/cliente.module';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { MaterialModule } from './plugin/material-imports';
 import { LayoutComponetModule } from './screen/layout-componet.module';
@@ -22,14 +19,7 @@ import { UserModule } from './user/user.module';
 
 registerLocaleData(localePt);
 @NgModule({
-  declarations: [
-    AppComponent,
-    MapComponent,
-    ClienteFormComponent,
-    LayoutComponetComponent,
-    ClienteListComponent,
-    ClientesOnMapComponent,
-  ],
+  declarations: [AppComponent, LayoutComponetComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -40,22 +30,14 @@ registerLocaleData(localePt);
     LayoutComponetModule,
     HttpClientModule,
     UserModule,
-    NgxMaskDirective,
-    NgxMaskPipe,
+
+    ClienteModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, // Adicione o AuthInterceptor aqui
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
-    provideNgxMask(),
   ],
   bootstrap: [AppComponent],
-  exports: [
-    MapComponent,
-    ClienteFormComponent,
-    LayoutComponetComponent,
-    LayoutComponetModule,
-    ClienteListComponent,
-    ClientesOnMapComponent,
-  ],
+  exports: [LayoutComponetComponent, LayoutComponetModule, ClienteModule],
 })
 export class AppModule {}

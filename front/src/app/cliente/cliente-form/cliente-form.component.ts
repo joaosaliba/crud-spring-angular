@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MapComponent } from 'src/app/components/map/map.component';
 import { ClienteService } from 'src/app/service/cliente.service';
-import { MapComponent } from '../map/map.component';
 
 @Component({
   selector: 'app-cliente-form',
@@ -29,7 +29,7 @@ export class ClienteFormComponent implements OnInit {
   onSubmit() {
     if (this.clientForm.valid) {
       this.service.save(this.clientForm.value).then(() => {
-        this.router.navigate(['/list']);
+        this.router.navigate(['/cliente/list']);
       });
     }
   }

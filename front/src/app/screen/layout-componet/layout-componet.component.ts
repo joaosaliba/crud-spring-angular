@@ -12,11 +12,11 @@ export class LayoutComponetComponent implements OnInit {
   menuItems: any[] = [
     {
       label: 'Inicio',
-      route: '/',
+      route: '/cliente/list',
     },
-    { label: 'Lista Cliente', route: '/list' },
-    { label: 'Cadastro Cliente', route: '/cadastro' },
-    { label: 'Mapa Clientes', route: '/mapaClientes' },
+    { label: 'Lista Cliente', route: '/cliente/list' },
+    { label: 'Cadastro Cliente', route: '/cliente/cadastro' },
+    { label: 'Mapa Clientes', route: '/cliente/mapaClientes' },
   ];
 
   public currentUrl: string;

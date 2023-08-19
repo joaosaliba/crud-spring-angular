@@ -26,7 +26,7 @@ export class LoginComponent {
   async login() {
     if (this.loginForm.valid) {
       await this.service.login(this.loginForm.value).then(() => {
-        this.router.navigate(['/list']);
+        this.router.navigate(['cliente/list']);
       });
     }
   }
