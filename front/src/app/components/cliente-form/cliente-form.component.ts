@@ -1,39 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ClienteService } from 'src/app/service/cliente.service';
 import { MapComponent } from '../map/map.component';
 
 @Component({
   selector: 'app-cliente-form',
   templateUrl: './cliente-form.component.html',
-  styleUrls: ['./cliente-form.component.scss']
+  styleUrls: ['./cliente-form.component.scss'],
 })
 export class ClienteFormComponent implements OnInit {
   clientForm: FormGroup = new FormGroup({
     nome: new FormControl('', [Validators.required, Validators.maxLength(200)]),
     cnpj: new FormControl('', [Validators.required, Validators.maxLength(14)]),
-    endereco:MapComponent.formGroup
+    endereco: MapComponent.formGroup,
   });
-  endereco: FormGroup  ;
+  endereco: FormGroup;
 
   constructor(
-    private readonly service: ClienteService) {}
+    private readonly service: ClienteService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-  
-
-
-   
-    this.endereco= this.clientForm.controls['endereco'] as FormGroup
+    this.endereco = this.clientForm.controls['endereco'] as FormGroup;
   }
 
   onSubmit() {
     if (this.clientForm.valid) {
-      this.service.save(this.clientForm.value)
-      console.log(this.clientForm.value);
-
-
+      this.service.save(this.clientForm.value).then(() => {
+        this.router.navigate(['/list']);
+      });
     }
   }
-
 }

@@ -30,4 +30,8 @@ export class ClienteService {
   async save(form) {
     return this.httpClient.post(this.uri, form).toPromise();
   }
+
+  delete(clienteID) {
+    return this.httpClient.delete(`${this.uri}/${clienteID}`);
+  }
 }

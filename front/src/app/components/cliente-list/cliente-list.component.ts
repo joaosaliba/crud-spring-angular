@@ -14,7 +14,14 @@ export class ClienteListComponent implements OnInit {
   cnpjFilter = new FormControl('');
   nomeFilter = new FormControl('');
 
-  displayedColumns: string[] = ['id', 'Nome', 'CNPJ', 'Latitude', 'Longitude'];
+  displayedColumns: string[] = [
+    'id',
+    'Nome',
+    'CNPJ',
+    'Latitude',
+    'Longitude',
+    'acao',
+  ];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   totalItemCount: number = 0;
@@ -50,5 +57,12 @@ export class ClienteListComponent implements OnInit {
     this.cnpjFilter.setValue('');
     this.nomeFilter.setValue('');
     this.loadData();
+  }
+
+  excluirCliente(clienteId: number) {
+    this.dataService.delete(clienteId).subscribe((res) => {
+      this.loadData();
+      console.log(`Excluindo cliente com ID: ${clienteId}`);
+    });
   }
 }

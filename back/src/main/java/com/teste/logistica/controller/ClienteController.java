@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +27,7 @@ public class ClienteController {
     @PostMapping
     public ResponseEntity register(@RequestBody ClienteDto clienteDto){
      clienteService.addCliente(clienteDto);
-        return ResponseEntity.ok("Criado");
+     return ResponseEntity.status(HttpStatus.CREATED).body("");
     }
 
     @GetMapping
@@ -47,6 +48,6 @@ public class ClienteController {
       @DeleteMapping("/{id}")
     public ResponseEntity deleteById(@PathVariable ("id") Long id){
       clienteService.deleteById(id);
-        return ResponseEntity.ok("Deletado");
+      return ResponseEntity.status(HttpStatus.ACCEPTED).body("");
     }
 }
