@@ -44,8 +44,8 @@
 - [x]  A consulta pode incluir filtros, como nome do cliente, CNPJ e localização.
 
 3. **Edição de Clientes:**
-   - [ ]  O sistema deve permitir a edição dos dados de clientes existentes.
-   - [ ]  Dados editáveis: Nome, CNPJ e Endereço.
+   - [x]  O sistema deve permitir a edição dos dados de clientes existentes.
+   - [x]  Dados editáveis: Nome, CNPJ e Endereço.
 
 4. **Exclusão de Clientes:**
    - [x]  Opção de exclusão de um cliente da base de dados.
