@@ -7,6 +7,7 @@ import { ClientesOnMapComponent } from './clientes-on-map/clientes-on-map.compon
 const routes: Routes = [
   { path: 'list', component: ClienteListComponent, pathMatch: 'full' },
   { path: 'cadastro', component: ClienteFormComponent, pathMatch: 'full' },
+  { path: 'editar/:id', component: ClienteFormComponent, pathMatch: 'full' },
   {
     path: 'mapaClientes',
     component: ClientesOnMapComponent,

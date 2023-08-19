@@ -34,4 +34,8 @@ export class ClienteService {
   delete(clienteID) {
     return this.httpClient.delete(`${this.uri}/${clienteID}`);
   }
+
+  findById(clienteID) {
+    return this.httpClient.get(`${this.uri}/${clienteID}`);
+  }
 }

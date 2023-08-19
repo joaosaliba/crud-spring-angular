@@ -47,6 +47,9 @@
         <button mat-icon-button color="warn" (click)="excluirCliente(element.id)">
           <mat-icon>delete</mat-icon>
         </button>
+        <button mat-icon-button color="primary" [routerLink]="'/cliente/editar/'+element.id">
+          <mat-icon>edit</mat-icon>
+        </button>
       </mat-cell>
     </ng-container>
     <!-- Células da tabela -->
