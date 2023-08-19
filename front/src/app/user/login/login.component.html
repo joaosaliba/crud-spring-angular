@@ -1,4 +1,4 @@
-<div class="login-container"  [style.background-image]="'url(' + backgroundImageUrl + ')'">
+<div class="login-container" >
     <mat-card class="login-card">
       <mat-card-header>
         <mat-card-title>Login</mat-card-title>
@@ -13,7 +13,11 @@
             <input matInput formControlName="password" type="password" placeholder="Senha">
             <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Senha é obrigatório</mat-error>
           </mat-form-field>
+          
           <button class="col-12"  mat-raised-button color="primary" type="submit">Login</button>
+          <div class="register-link">
+            <a [routerLink]="'/new-user'">Registrar novo usuário</a>
+          </div>
         </form>
       </mat-card-content>
     </mat-card>

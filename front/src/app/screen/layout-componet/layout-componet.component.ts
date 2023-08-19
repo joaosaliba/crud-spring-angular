@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/user/login.service';
+import { LoginService } from 'src/app/user/service/login.service';
 
 @Component({
   selector: 'app-layout-componet',

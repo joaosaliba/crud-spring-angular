@@ -6,9 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../plugin/material-imports';
 import { LoginComponent } from './login/login.component';
 import { UserRoutingModule } from './user-routing.module';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
@@ -17,6 +18,6 @@ import { UserRoutingModule } from './user-routing.module';
     FormsModule,
     ReactiveFormsModule,
   ],
-  exports: [LoginComponent],
+  exports: [LoginComponent, RegisterComponent],
 })
 export class UserModule {}

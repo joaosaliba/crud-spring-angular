@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from '../login.service';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -21,8 +21,6 @@ export class LoginComponent {
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
-
-    this.loadRandomBackgroundImage();
   }
 
   async login() {
@@ -31,9 +29,5 @@ export class LoginComponent {
         this.router.navigate(['/list']);
       });
     }
-  }
-  loadRandomBackgroundImage() {
-    const randomImageId = Math.floor(Math.random() * 1000); // You can adjust the range
-    this.backgroundImageUrl = `https://picsum.photos/id/${randomImageId}/1200/800`;
   }
 }

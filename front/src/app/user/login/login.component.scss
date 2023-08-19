@@ -9,3 +9,18 @@
     width: 400px;
     max-width: 90%;
 }
+.register-link {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.register-link a {
+    color: #007bff;
+    /* Cor do link */
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+    /* Sublinhar ao passar o mouse */
+}
