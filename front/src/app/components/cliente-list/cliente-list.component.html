@@ -1,4 +1,17 @@
 <div class="table-container">
+
+  <div class="filter-container">
+    <mat-form-field class="filter-field col-4 m-1">
+      <input matInput placeholder="Filtrar por CNPJ" [formControl]="cnpjFilter">
+    </mat-form-field>
+    <mat-form-field class="filter-field col-4  m-1">
+      <input matInput placeholder="Filtrar por Nome" [formControl]="nomeFilter">
+    </mat-form-field>
+    <button mat-raised-button  color="primary" class="col-3 m-4" (click)="loadData()">Buscar</button>
+  </div>
+
+  <button mat-raised-button  color="" class="col-12" (click)="limparFiltrosEBuscar()">Limpar</button>
+
   <mat-table [dataSource]="dataSource">
     <!-- Colunas da tabela -->
     <ng-container matColumnDef="id">
@@ -6,22 +19,22 @@
       <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="nome">
+    <ng-container matColumnDef="Nome">
       <mat-header-cell *matHeaderCellDef>nome</mat-header-cell>
       <mat-cell *matCellDef="let element">{{ element.nome }}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="cnpj">
+    <ng-container matColumnDef="CNPJ">
       <mat-header-cell *matHeaderCellDef>cnpj</mat-header-cell>
       <mat-cell *matCellDef="let element">{{ element.cnpj }}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="latitude">
+    <ng-container matColumnDef="Latitude">
       <mat-header-cell *matHeaderCellDef>latitude</mat-header-cell>
       <mat-cell *matCellDef="let element">{{
         element.endereco.latitude
       }}</mat-cell>
     </ng-container>
-    <ng-container matColumnDef="longitude">
+    <ng-container matColumnDef="Longitude">
       <mat-header-cell *matHeaderCellDef>longitude</mat-header-cell>
       <mat-cell *matCellDef="let element">{{
         element.endereco.longitude

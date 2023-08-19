@@ -1,6 +1,6 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side"  class="example-container">
-    <mat-nav-list>
+  <mat-sidenav #sidenav mode="side"  class="example-container" opened>
+    <mat-nav-list class="mt-5">
       <ng-container *ngFor="let item of menuItems">
         <mat-list-item [routerLink]="item.route" routerLinkActive="active">
           <span mat-line>{{ item.label }}</span>
@@ -22,7 +22,7 @@
         <mat-icon>exit_to_app</mat-icon>
       </button>
     </mat-toolbar>
-    <div class="center-card">
+    <div class="center-card mt-5">
       <mat-card class="card">
         <mat-card-content>
           <router-outlet></router-outlet>

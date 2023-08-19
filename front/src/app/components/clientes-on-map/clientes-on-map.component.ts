@@ -41,24 +41,32 @@ export class ClientesOnMapComponent implements AfterViewInit {
     this.loadData();
   }
   loadData() {
-    this.dataService.getData(0, 100).subscribe((data) => {
+    this.dataService.getData(0, 100, null, null).subscribe((data) => {
       this.dataSource = data.content;
-  
+
       // Calculate the bounding box of marker coordinates
-      const minLatitude = Math.min(...this.dataSource.map(pessoa => pessoa.endereco.latitude));
-      const maxLatitude = Math.max(...this.dataSource.map(pessoa => pessoa.endereco.latitude));
-      const minLongitude = Math.min(...this.dataSource.map(pessoa => pessoa.endereco.longitude));
-      const maxLongitude = Math.max(...this.dataSource.map(pessoa => pessoa.endereco.longitude));
-  
+      const minLatitude = Math.min(
+        ...this.dataSource.map((pessoa) => pessoa.endereco.latitude)
+      );
+      const maxLatitude = Math.max(
+        ...this.dataSource.map((pessoa) => pessoa.endereco.latitude)
+      );
+      const minLongitude = Math.min(
+        ...this.dataSource.map((pessoa) => pessoa.endereco.longitude)
+      );
+      const maxLongitude = Math.max(
+        ...this.dataSource.map((pessoa) => pessoa.endereco.longitude)
+      );
+
       // Calculate the center based on the bounding box
       const center: tt.LngLatLike = [
         (minLongitude + maxLongitude) / 2,
-        (minLatitude + maxLatitude) / 2
+        (minLatitude + maxLatitude) / 2,
       ];
-  
+
       // Initialize the map with the calculated center and default zoom
       this.initMap(center);
-  
+
       // Add markers
       this.dataSource.forEach((pessoa) => {
         this.addMarker(pessoa);

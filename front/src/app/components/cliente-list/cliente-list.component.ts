@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ClienteService } from 'src/app/service/cliente.service';
@@ -6,11 +7,14 @@ import { ClienteService } from 'src/app/service/cliente.service';
 @Component({
   selector: 'app-cliente-list',
   templateUrl: './cliente-list.component.html',
-  styleUrls: ['./cliente-list.component.scss']
+  styleUrls: ['./cliente-list.component.scss'],
 })
 export class ClienteListComponent implements OnInit {
   dataSource = new MatTableDataSource<any>();
-  displayedColumns: string[] = ['id', 'nome', 'cnpj','latitude', 'longitude'];
+  cnpjFilter = new FormControl('');
+  nomeFilter = new FormControl('');
+
+  displayedColumns: string[] = ['id', 'Nome', 'CNPJ', 'Latitude', 'Longitude'];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   totalItemCount: number = 0;
@@ -23,17 +27,28 @@ export class ClienteListComponent implements OnInit {
     this.loadData();
   }
   handlePageEvent(event: PageEvent) {
-    this.pageSize = event.pageSize
+    this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;
-    this.loadData()
+    this.loadData();
   }
 
   loadData() {
-    this.dataService.getData(this.paginator.pageIndex, this.paginator.pageSize)
-      .subscribe(data =>{
-        console.log(data)
-        this.totalItemCount= data.totalElements
-        this.dataSource.data = data.content});
+    this.dataService
+      .getData(
+        this.paginator.pageIndex,
+        this.paginator.pageSize,
+        this.cnpjFilter.value,
+        this.nomeFilter.value
+      )
+      .subscribe((data) => {
+        this.totalItemCount = data.totalElements;
+        this.dataSource.data = data.content;
+      });
   }
 
+  limparFiltrosEBuscar() {
+    this.cnpjFilter.setValue('');
+    this.nomeFilter.setValue('');
+    this.loadData();
+  }
 }
