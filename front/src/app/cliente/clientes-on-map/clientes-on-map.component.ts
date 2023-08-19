@@ -42,29 +42,28 @@ export class ClientesOnMapComponent implements AfterViewInit {
   loadData() {
     this.dataService.getData(0, 100, null, null).subscribe((data) => {
       this.dataSource = data.content;
-      if (this.dataSource.length < 1) {
-        return;
+      let center: tt.LngLatLike = [-47.925738, -15.779384];
+      if (this.dataSource.lenght) {
+        // Calculate the bounding box of marker coordinates
+        const minLatitude = Math.min(
+          ...this.dataSource.map((pessoa) => pessoa.endereco.latitude)
+        );
+        const maxLatitude = Math.max(
+          ...this.dataSource.map((pessoa) => pessoa.endereco.latitude)
+        );
+        const minLongitude = Math.min(
+          ...this.dataSource.map((pessoa) => pessoa.endereco.longitude)
+        );
+        const maxLongitude = Math.max(
+          ...this.dataSource.map((pessoa) => pessoa.endereco.longitude)
+        );
+
+        // Calculate the center based on the bounding box
+        center = [
+          (minLongitude + maxLongitude) / 2,
+          (minLatitude + maxLatitude) / 2,
+        ];
       }
-      // Calculate the bounding box of marker coordinates
-      const minLatitude = Math.min(
-        ...this.dataSource.map((pessoa) => pessoa.endereco.latitude)
-      );
-      const maxLatitude = Math.max(
-        ...this.dataSource.map((pessoa) => pessoa.endereco.latitude)
-      );
-      const minLongitude = Math.min(
-        ...this.dataSource.map((pessoa) => pessoa.endereco.longitude)
-      );
-      const maxLongitude = Math.max(
-        ...this.dataSource.map((pessoa) => pessoa.endereco.longitude)
-      );
-
-      // Calculate the center based on the bounding box
-      const center: tt.LngLatLike = [
-        (minLongitude + maxLongitude) / 2,
-        (minLatitude + maxLatitude) / 2,
-      ];
-
       // Initialize the map with the calculated center and default zoom
       this.initMap(center);
 
@@ -81,7 +80,7 @@ export class ClientesOnMapComponent implements AfterViewInit {
       language: 'pt-BR',
       container: this.mapContainer.nativeElement,
       center: center,
-      zoom: 10, // Set a default zoom level
+      zoom: 8, // Set a default zoom level
     });
     this.map.addControl(new tt.FullscreenControl());
     this.map.addControl(new tt.NavigationControl());
