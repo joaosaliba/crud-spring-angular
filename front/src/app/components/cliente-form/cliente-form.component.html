@@ -8,7 +8,7 @@
     </mat-form-field>
   
     <mat-form-field class="col-12">
-      <input matInput placeholder="CNPJ" formControlName="cnpj" required>
+      <input matInput placeholder="CNPJ" formControlName="cnpj"  mask="00.000.000/0000-00" required>
       <mat-error *ngIf="clientForm.controls['cnpj'].hasError('maxlength')">CNPJ deve ter no máximo 14 caracteres</mat-error>
     </mat-form-field>
   

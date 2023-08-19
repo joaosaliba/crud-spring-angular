@@ -7,6 +7,7 @@ import localePt from '@angular/common/locales/pt';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClienteFormComponent } from './components/cliente-form/cliente-form.component';
@@ -39,10 +40,13 @@ registerLocaleData(localePt);
     LayoutComponetModule,
     HttpClientModule,
     UserModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, // Adicione o AuthInterceptor aqui
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
+    provideNgxMask(),
   ],
   bootstrap: [AppComponent],
   exports: [
