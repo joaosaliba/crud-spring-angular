@@ -26,7 +26,7 @@ public class ClienteController {
     @PostMapping
     public ResponseEntity register(@RequestBody ClienteDto clienteDto){
      clienteService.addCliente(clienteDto);
-        return ResponseEntity.ok("");
+        return ResponseEntity.ok("Criado");
     }
 
     @GetMapping

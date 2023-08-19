@@ -5,6 +5,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.teste.logistica.dto.UserDto;
@@ -15,13 +20,26 @@ import com.teste.logistica.repository.RoleRepository;
 import com.teste.logistica.repository.UserRepository;
 
 @Service
-public class UserService {
+public class UserService  implements UserDetailsService{
         @Autowired
      private UserRepository userRepository;
          @Autowired
     private RoleRepository roleRepository;
 
+   
 
+	@Autowired
+	 PasswordEncoder bcryptEncoder;
+
+    @Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = userRepository.findByUsername(username).orElse(null);
+		if (user == null) {
+			throw new UsernameNotFoundException("User not found with username: " + username);
+		}
+		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+				AuthorityUtils.createAuthorityList("ROLE_USER"));
+	}
   
 
     public void saveUser(UserDto userDto) {
@@ -29,7 +47,7 @@ public class UserService {
         user.setUsername(userDto.getUsername());
         user.setEmail(userDto.getEmail());
         // encrypt the password using spring security
-        user.setPassword(userDto.getPassword());
+        user.setPassword(bcryptEncoder.encode(userDto.getPassword()));
         Role role = roleRepository.findByName(EnumRole.ROLE_ADMIN).orElse(null);
         if(role == null){
             role = checkRoleExist();
