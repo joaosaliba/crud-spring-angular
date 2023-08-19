@@ -45,8 +45,8 @@ public class ClienteService {
 
     }
 
-    public Page<ClienteDto> getAll(Pageable page) {
-        return clienteRepository.findClientesList(page);
+    public Page<ClienteDto> getAll(Pageable page,String nome, String cnpj) {
+        return clienteRepository.findClientesList(page,nome,cnpj);
     }
 
     public ClienteDto findById(Long id) {

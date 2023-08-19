@@ -1,4 +1,4 @@
-package com.teste.logistica.dto;
+package com.teste.logistica.dto.user;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;

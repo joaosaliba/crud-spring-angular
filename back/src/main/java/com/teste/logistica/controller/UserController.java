@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.teste.logistica.dto.JwtResponse;
-import com.teste.logistica.dto.UserDto;
-import com.teste.logistica.dto.UserLoginDto;
+import com.teste.logistica.dto.user.JwtResponse;
+import com.teste.logistica.dto.user.UserDto;
+import com.teste.logistica.dto.user.UserLoginDto;
 import com.teste.logistica.security.JwtTokenService;
 import com.teste.logistica.service.UserService;
 

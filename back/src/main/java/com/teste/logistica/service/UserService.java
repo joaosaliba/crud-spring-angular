@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.teste.logistica.dto.UserDto;
+import com.teste.logistica.dto.user.UserDto;
 import com.teste.logistica.enums.EnumRole;
 import com.teste.logistica.model.Role;
 import com.teste.logistica.model.User;

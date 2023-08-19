@@ -31,9 +31,11 @@ public class ClienteController {
 
     @GetMapping
     public ResponseEntity getAll(  @RequestParam(defaultValue = "0") int page,
-    @RequestParam(defaultValue = "10") int size){
+    @RequestParam(defaultValue = "10") int size,
+    @RequestParam(required = false) String nome,
+    @RequestParam(required = false) String cnpj){
          Pageable paging = PageRequest.of(page, size);
-        Page<ClienteDto> clientList =clienteService.getAll(paging);
+        Page<ClienteDto> clientList =clienteService.getAll(paging,nome,cnpj);
         return ResponseEntity.ok(clientList);
     }
 
