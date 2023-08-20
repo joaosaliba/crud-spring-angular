@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, Input, ViewChild, ViewEncapsulati
 import { FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 import tt from '@tomtom-international/web-sdk-maps';
 import { services } from "@tomtom-international/web-sdk-services";
-import { environment } from 'src/app/environments/environment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-map',
