@@ -76,21 +76,21 @@
 ## Plano de Testes:
 
 1. **Cadastro de Clientes:**
-   - Testar cadastro com informações corretas.
+   - [x] Testar cadastro com informações corretas.
    - Testar cadastro sem informações obrigatórias.
    - Testar cadastro com informações inválidas.
 
 2. **Consulta de Clientes:**
-   - Testar busca por clientes cadastrados.
-   - Verificar se informações exibidas na consulta estão corretas.
+   - [x] Testar busca por clientes cadastrados.
+   - [x] Verificar se informações exibidas na consulta estão corretas.
 
 3. **Edição de Clientes:**
-   - Testar edição das informações de um cliente.
-   - Verificar atualização correta na base de dados.
+   - [x] Testar edição das informações de um cliente.
+   - [x] Verificar atualização correta na base de dados.
 
 4. **Exclusão de Clientes:**
-   - Testar exclusão de um cliente.
-   - Verificar remoção da base de dados.
+   - [x] Testar exclusão de um cliente.
+   - [x] Verificar remoção da base de dados.
 
 6. **Validações:**
    - Testar autenticação para acesso seguro.
