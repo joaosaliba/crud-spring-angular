@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ClienteService } from 'src/app/cliente/cliente.service';
 import { MapComponent } from 'src/app/components/map/map.component';
-import { ClienteService } from 'src/app/service/cliente.service';
 
 @Component({
   selector: 'app-cliente-form',

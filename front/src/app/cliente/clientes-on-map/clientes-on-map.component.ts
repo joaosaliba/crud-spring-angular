@@ -8,7 +8,8 @@ import {
 } from '@angular/core';
 import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import tt from '@tomtom-international/web-sdk-maps';
-import { ClienteService } from 'src/app/service/cliente.service';
+import { ClienteService } from 'src/app/cliente/cliente.service';
+import { environment } from 'src/app/environments/environment';
 
 @Component({
   selector: 'app-clientes-on-map',
@@ -31,7 +32,7 @@ export class ClientesOnMapComponent implements AfterViewInit {
 
   private map!: tt.Map;
   private markers: tt.Marker[] = [];
-  private apiKey = 'LeoAVzKJGtmMgn4KQt3EbhWCgDXoTgsc';
+  private apiKey = environment.tomtomKey;
 
   searchControl = new FormControl();
   searchResults: any;

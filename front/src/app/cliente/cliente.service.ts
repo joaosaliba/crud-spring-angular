@@ -1,12 +1,13 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClienteService {
-  private uri = 'http://localhost:8080/cliente';
+  private uri = environment.linkBack + 'cliente';
   constructor(private httpClient: HttpClient) {}
 
   getData(
