@@ -11,7 +11,7 @@ import { MapComponent } from 'src/app/components/map/map.component';
 })
 export class ClienteFormComponent implements OnInit {
   clientForm: FormGroup = new FormGroup({
-    id: new FormControl({}),
+    id: new FormControl(),
     nome: new FormControl('', [Validators.required, Validators.maxLength(200)]),
     cnpj: new FormControl('', [Validators.required, Validators.maxLength(14)]),
     endereco: MapComponent.formGroup,
